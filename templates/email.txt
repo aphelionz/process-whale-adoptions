@@ -1,0 +1,3 @@
+You can now download your Digital Whale Adoption package by clicking this link:
+https://s3.amazonaws.com/ocean-alliance/adoption-material/{}.
+

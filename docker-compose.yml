@@ -1,0 +1,21 @@
+version: "3"
+
+# To be run via host cron
+# User must be in `docker` group
+# */10 * * * * /bin/bash -c "cd /home/whale-adoptions/process_whale_adoptions && ./run.sh >> /home/whale-adoptions/adoptions.log 2>&1"
+# Requires .envfile
+
+services:
+  adoptions:
+    build: .
+    image: aphelionz/process-whale-adoptions:v0.0.4
+    container_name: adoption_script
+    environment:
+      - SHOPIFY_API_KEY
+      - SHOPIFY_PASSWORD
+      - REGION_NAME
+      - SES_AWS_ACCESS_KEY_ID
+      - SES_AWS_SECRET_ACCESS_KEY
+      - S3_AWS_ACCESS_KEY_ID
+      - S3_AWS_SECRET_ACCESS_KEY
+    command: tail -F /dev/null
